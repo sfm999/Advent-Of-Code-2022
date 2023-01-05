@@ -23,7 +23,7 @@ def get_and_parse_data(filename):
     col_count_lst = list(map(lambda x: int(x), col_count_lst))
     total_cols = max(col_count_lst)
 
-
+    print(total_cols)
 
     # Parse the columns by keeping any spaces but stripping the square brackets
     # Then we pad out the list with spaces till its length is equivalent to total_cols
@@ -73,12 +73,16 @@ def get_and_parse_data(filename):
     instruction_lst = []
     for instruction in instructions.splitlines():   # Split the instructions from the string
         lst = []                                    # List that will hold each instruction sequence
-        for inst in instruction:                    # Iterate split lines
+        split_lst = instruction.split()
+        for inst in split_lst:                    # Iterate split lines
             if inst.isnumeric():                    # Determine if curr char in line is numeric
                 lst.append(int(inst))             # If so, add to lst
         instruction_lst.append(lst)                 # Add lst to instruction_lst
 
+    print(instruction_lst)
+
     return crate_stacks, instruction_lst        # Return the crate_stacks and the instruction list
+
 
 
 # instruction[0] = QUANTITY to take
